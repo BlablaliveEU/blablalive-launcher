@@ -6,6 +6,8 @@ jobs:
     steps:
       - checkout
       - run: yarn && yarn release --x64 --ia32 --linux --win
+      - store_artifacts:
+          path: /tmp/core_dumps
 
   build_macos:
     macos:
@@ -13,6 +15,8 @@ jobs:
     steps:
       - checkout
       - run: yarn && yarn release
+      - store_artifacts:
+          path: /tmp/core_dumps
 
 workflows:
   version: 2
@@ -20,18 +24,3 @@ workflows:
     jobs:
       - build_windows
       - build_macos
-
-build:
-  working_directory: /tmp
-  steps:
-    - run:
-        name: Creating Dummy Artifacts
-        command: |
-          echo "my artifact file" > /tmp/art-1;
-          mkdir /tmp/artifacts;
-          echo "my artifact files in a dir" > /tmp/artifacts/art-2;
-    - store_artifacts:
-        path: /tmp/art-1
-        destination: artifact-file
-    - store_artifacts:
-        path: /tmp/artifacts

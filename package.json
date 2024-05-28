@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "The desktop application for Blablalive.eu with integrated Flash Player.",
   "homepage": "https://www.blablalive.eu",
-  "bugs": {
-    "url": "https://github.com/teampanfu/panfu-desktop/issues"
-  },
   "license": "MIT",
   "author": "Blablalive.eu <modograndsage@gmail.com>",
   "scripts": {

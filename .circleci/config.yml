@@ -11,13 +11,14 @@ jobs:
           path: /release
 
   build_macos:
+    working_directory: /releasemac
     macos:
       xcode: "14.0.0"
     steps:
       - checkout
       - run: yarn && yarn release
       - store_artifacts:
-          path: /release
+          path: /releasemac
 
 workflows:
   version: 2

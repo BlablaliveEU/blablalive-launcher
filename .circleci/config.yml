@@ -14,7 +14,7 @@ jobs:
           destination: artifact-file
       - store_artifacts:
           path: /tmp/artifacts
-          
+
   build_windows:
     docker:
       - image: electronuserland/builder:wine
@@ -33,5 +33,6 @@ workflows:
   version: 2
   build:
     jobs:
+      - build
       - build_windows
       - build_macos

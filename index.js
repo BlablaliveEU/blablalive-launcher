@@ -110,12 +110,12 @@ if (!gotTheLock) {
     app.on('browser-window-focus', () => {
       if (process.platform !== 'darwin') {
         globalShortcut.register('Control+Shift+I', () => {
-          console.log('Le raccourci clavier "Ctrl+Shift+I" est bloqué.');
+          //console.log('Le raccourci clavier "Ctrl+Shift+I" est bloqué.');
         });
       } else {
         // Bloquer le raccourci clavier "Cmd+Option+I" sur Mac
         globalShortcut.register('Cmd+Option+I', () => {
-          console.log('Le raccourci clavier "Cmd+Option+I" est bloqué.');
+          //console.log('Le raccourci clavier "Cmd+Option+I" est bloqué.');
         });
       }
     })

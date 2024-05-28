@@ -1,0 +1,24 @@
+{
+  "name": "blablalive-desktop",
+  "version": "1.0.0",
+  "description": "The desktop application for Blablalive.eu with integrated Flash Player.",
+  "homepage": "https://www.blablalive.eu",
+  "bugs": {
+    "url": "https://github.com/teampanfu/panfu-desktop/issues"
+  },
+  "license": "MIT",
+  "author": "Blablalive.eu <modograndsage@gmail.com>",
+  "scripts": {
+    "package": "electron-builder --publish never",
+    "release": "electron-builder --publish always",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.8",
+    "electron-window-state": "^5.0.3"
+  },
+  "devDependencies": {
+    "electron": "^11.5.0",
+    "electron-builder": "^24.13.3"
+  }
+}

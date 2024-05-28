@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: yarn && yarn release --x64 --ia32 --linux --win
       - store_artifacts:
-          path: /root/project/build
+          path: /release
 
   build_macos:
     macos:
@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run: yarn && yarn release
       - store_artifacts:
-          path: /root/project/build
+          path: /release
 
 workflows:
   version: 2

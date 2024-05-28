@@ -1,38 +1,19 @@
+
 version: 2
 jobs:
-  build:
-    working_directory: /tmp
-    steps:
-      - run:
-          name: Creating Dummy Artifacts
-          command: |
-            echo "my artifact file" > /tmp/art-1;
-            mkdir /tmp/artifacts;
-            echo "my artifact files in a dir" > /tmp/artifacts/art-2;
-      - store_artifacts:
-          path: /tmp/art-1
-          destination: artifact-file
-      - store_artifacts:
-          path: /tmp/artifacts
+build:
+  working_directory: /tmp
+  steps:
+    - run:
+        name: Creating Dummy Artifacts
+        command: |
+          echo "my artifact file" > /tmp/art-1;
+          mkdir /tmp/artifacts;
+          echo "my artifact files in a dir" > /tmp/artifacts/art-2;
 
-  build_windows:
-    docker:
-      - image: electronuserland/builder:wine
-    steps:
-      - checkout
-      - run: yarn && yarn release --x64 --ia32 --linux --win
+    - store_artifacts:
+        path: /tmp/art-1
+        destination: artifact-file
 
-  build_macos:
-    macos:
-      xcode: "14.0.0"
-    steps:
-      - checkout
-      - run: yarn && yarn release
-
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build
-      - build_windows
-      - build_macos
+    - store_artifacts:
+        path: /tmp/artifacts

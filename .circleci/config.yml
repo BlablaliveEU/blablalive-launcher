@@ -1,22 +1,32 @@
 version: 2
 jobs:
   build_windows:
+    working_directory: /tmp
     docker:
       - image: electronuserland/builder:wine
     steps:
       - checkout
       - run: yarn && yarn release --x64 --ia32 --linux --win
-      - store_artifacts:
-          path: /release
+      - run:
+        name: Creating Dummy Artifacts
+        command: |
+          mkdir /tmp/artifacts;
+    - store_artifacts:
+        path: /tmp/artifacts
 
   build_macos:
+    working_directory: /tmp
     macos:
       xcode: "14.0.0"
     steps:
       - checkout
       - run: yarn && yarn release
-      - store_artifacts:
-          path: /release
+      - run:
+        name: Creating Dummy Artifacts
+        command: |
+          mkdir /tmp/artifacts;
+    - store_artifacts:
+        path: /tmp/artifacts
 
 workflows:
   version: 2

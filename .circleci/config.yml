@@ -6,8 +6,6 @@ jobs:
     steps:
       - checkout
       - run: yarn && yarn release --x64 --ia32 --linux --win
-      - store_artifacts:
-          path: /tmp/core_dumps
 
   build_macos:
     macos:
@@ -15,8 +13,6 @@ jobs:
     steps:
       - checkout
       - run: yarn && yarn release
-      - store_artifacts:
-          path: /tmp/core_dumps
 
 workflows:
   version: 2

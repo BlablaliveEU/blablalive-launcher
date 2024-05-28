@@ -3,22 +3,22 @@ jobs:
   build_windows:
     docker:
       - image: electronuserland/builder:wine
-    working_directory: /officialartifact
+    working_directory: /release
     steps:
       - checkout
       - run: yarn && yarn release --x64 --ia32 --linux --win
       - store_artifacts:
-          path: /officialartifact/artifacts
+          path: /release
 
   build_macos:
     macos:
       xcode: "14.0.0"
-    working_directory: /officialartifact
+    working_directory: /release
     steps:
       - checkout
       - run: yarn && yarn release
       - store_artifacts:
-          path: /officialartifact/artifacts
+          path: /release
 
 workflows:
   version: 2

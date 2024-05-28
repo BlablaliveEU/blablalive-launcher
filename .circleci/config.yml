@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build_windows:
-    working_directory: /tmp
     docker:
       - image: electronuserland/builder:wine
     steps:
@@ -15,7 +14,6 @@ jobs:
         path: /tmp/artifacts
 
   build_macos:
-    working_directory: /tmp
     macos:
       xcode: "14.0.0"
     steps:

@@ -69,7 +69,7 @@ if (!gotTheLock) {
       default:
         pluginName = 'libpepflashplayer.so';
     }
-
+    console.log(app.isPackaged + " : " + process.resourcesPath + " : " + __dirname);
     const resourcesPath = app.isPackaged ? process.resourcesPath : __dirname;
 
     if (['freebsd', 'linux', 'netbsd', 'openbsd'].includes(process.platform)) {

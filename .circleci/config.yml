@@ -7,26 +7,20 @@ jobs:
     steps:
       - checkout
       - run: yarn && yarn release --x64 --ia32 --linux --win
-      - run: mkdir /tmp/artifacts
+      - run: mkdir /tmpp/artifacts
       - store_artifacts:
-          path: /tmp/art-1
-          destination: artifact-file
-      - store_artifacts:
-          path: /tmp/artifacts
+          path: /tmpp/artifacts
 
   build_macos:
     macos:
       xcode: "14.0.0"
-    working_directory: /tmp
+    working_directory: /tmpp
     steps:
       - checkout
       - run: yarn && yarn release
-      - run: mkdir /tmp/artifacts
+      - run: mkdir /tmpp/artifacts
       - store_artifacts:
-          path: /tmp/art-1
-          destination: artifact-file
-      - store_artifacts:
-          path: /tmp/artifacts
+          path: /tmpp/artifacts
 
 workflows:
   version: 2

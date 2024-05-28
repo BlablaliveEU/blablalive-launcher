@@ -13,7 +13,6 @@ jobs:
   build_macos:
     macos:
       xcode: "14.0.0"
-    working_directory: /release
     steps:
       - checkout
       - run: yarn && yarn release

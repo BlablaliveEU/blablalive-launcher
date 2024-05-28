@@ -7,12 +7,7 @@ jobs:
     steps:
       - checkout
       - run: yarn && yarn release --x64 --ia32 --linux --win
-      - run:
-        name: Creating Dummy Artifacts
-        command: |
-          echo "my artifact file" > /tmp/art-1;
-          mkdir /tmp/artifacts;
-          echo "my artifact files in a dir" > /tmp/artifacts/art-2;
+      - run: mkdir /tmp/artifacts
       - store_artifacts:
           path: /tmp/art-1
           destination: artifact-file
@@ -26,12 +21,7 @@ jobs:
     steps:
       - checkout
       - run: yarn && yarn release
-      - run:
-        name: Creating Dummy Artifacts
-        command: |
-          echo "my artifact file" > /tmp/art-1;
-          mkdir /tmp/artifacts;
-          echo "my artifact files in a dir" > /tmp/artifacts/art-2;
+      - run: mkdir /tmp/artifacts
       - store_artifacts:
           path: /tmp/art-1
           destination: artifact-file
